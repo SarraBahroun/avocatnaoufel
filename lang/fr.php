@@ -55,6 +55,10 @@ return [
         ['Action',  'Représentation et plaidoirie devant les cours.'],
     ],
 
+    'media_h2'  => 'Dans les Médias',
+    'media_sub' => 'Maître Naoufel Bahroun invité sur la chaîne Al Janoubiya TV.',
+    'media_video' => 'Vidéo — Al Janoubiya TV',
+
     'stats' => [
         ['fa-briefcase', '+35',        "Ans d'expérience"],
         ['fa-landmark',  'Cassation',  'Habilité près la Cour'],

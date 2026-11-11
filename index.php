@@ -126,6 +126,22 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
     </div>
 </section>
 
+<?php if (!empty($SITE['videos'])): ?>
+<section id="medias" class="section-padding">
+    <h2 class="section-title"><?= $t('media_h2') ?></h2>
+    <p class="section-sub"><?= $t('media_sub') ?></p>
+    <div class="videos">
+        <?php foreach ($SITE['videos'] as $v): ?>
+            <div class="video-wrap">
+                <iframe src="https://www.facebook.com/plugins/video.php?href=<?= rawurlencode($v) ?>&amp;show_text=false&amp;locale=<?= ['fr' => 'fr_FR', 'ar' => 'ar_AR', 'en' => 'en_US'][$lang] ?? 'fr_FR' ?>"
+                        title="<?= $t('media_video') ?>" loading="lazy" allowfullscreen
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+<?php endif; ?>
+
 <section id="rendez-vous" class="section-padding" style="background: rgba(255,255,255,0.02);">
     <h2 class="section-title"><?= $t('rdv_h2') ?></h2>
     <p class="section-sub"><?= $t('rdv_sub') ?></p>

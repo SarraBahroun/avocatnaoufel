@@ -273,3 +273,8 @@ footer .foot-name { color: var(--gold); font-family: 'Playfair Display', serif; 
 @media (prefers-reduced-motion: reduce) {
     *, *::before { animation-duration: .01s !important; animation-delay: 0s !important; }
 }
+
+/* Section Médias : vidéos Facebook intégrées */
+.videos { display: grid; gap: 30px; max-width: 900px; margin: 0 auto; }
+.video-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--gold-soft); border-top: 4px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

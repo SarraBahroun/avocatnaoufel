@@ -55,6 +55,10 @@ return [
         ['Action',   'Representation and pleading before the courts.'],
     ],
 
+    'media_h2'  => 'In the Media',
+    'media_sub' => 'Maître Naoufel Bahroun as a guest on Al Janoubiya TV.',
+    'media_video' => 'Video — Al Janoubiya TV',
+
     'stats' => [
         ['fa-briefcase',    '+35',       'Years of experience'],
         ['fa-landmark',     'Cassation', 'Admitted to the Court'],

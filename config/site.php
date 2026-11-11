@@ -18,5 +18,10 @@ $SITE = [
     'tel_raw'      => '+21622658073',
     'fax'          => '+216 72 222 405',
 
+    // Vidéos Facebook affichées dans la section « Médias » (lien de la vidéo)
+    'videos'       => [
+        'https://www.facebook.com/aljanoubiatv.officielle/videos/3777158839269427/',
+    ],
+
     'maps_query'   => '155 Avenue Habib Bourguiba, 8000 Nabeul, Tunisie',
 ];
