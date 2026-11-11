@@ -1,0 +1,111 @@
+<?php
+return [
+    'meta_title' => 'Maître Naoufel Bahroun — Avocat près la Cour de cassation à Nabeul',
+    'meta_desc'  => "Cabinet de Maître Naoufel Bahroun, avocat près la Cour de cassation à Nabeul. Civil, immobilier, commercial, famille, pénal, travail. Intervention dans toute la Tunisie. Prise de rendez-vous en ligne.",
+
+    'logo_name'  => 'MAÎTRE NAOUFEL BAHROUN',
+    'logo_title' => 'Avocat près la Cour de cassation',
+
+    'nav_cabinet'    => 'Cabinet',
+    'nav_expertises' => 'Expertises',
+    'nav_zone'       => 'Intervention',
+    'nav_contact'    => 'Contact',
+    'nav_rdv'        => 'Prendre rendez-vous',
+
+    'hero_h1'    => 'Justice & Expertise',
+    'hero_name'  => 'Cabinet Maître Naoufel Bahroun',
+    'hero_title' => 'Avocat près la Cour de cassation — Nabeul',
+    'btn_rdv'    => 'Prendre rendez-vous',
+    'btn_call'   => 'Appeler le cabinet',
+
+    'about_h2'   => 'Approche Professionnelle',
+    'quote'      => '« L’avocat est la voix du droit quand le silence devient injustice. »',
+    'about_p1'   => "Maître Naoufel Bahroun met son expertise de plus de 35 ans au service d'une justice équitable, garantissant à chaque client une défense rigoureuse et personnalisée.",
+    'about_p2'   => "Installé à Nabeul, le cabinet accompagne particuliers et entreprises : consultations juridiques, rédaction d'actes (contrats, statuts de sociétés), négociation et représentation devant toutes les juridictions, jusqu'à la Cour de cassation.",
+    'parcours'   => [
+        ['fa-graduation-cap', 'Diplômé de la Faculté de Droit de Tunis'],
+        ['fa-scale-balanced', "Inscrit à l'Ordre National des Avocats de Tunisie — section de Nabeul"],
+        ['fa-landmark',       'Avocat près la Cour de cassation'],
+        ['fa-briefcase',      "Plus de 35 ans d'exercice"],
+    ],
+
+    'exp_h2'  => "Domaines d'Expertise",
+    'exp_sub' => 'Un accompagnement juridique complet, du conseil jusqu’au contentieux.',
+    'expertises' => [
+        ['fa-building',        'Civil & Immobilier',      ['Contrats & obligations', 'Propriété & titres fonciers', 'Transactions & ventes']],
+        ['fa-briefcase',       'Commercial & Sociétés',   ['Création & statuts de sociétés', 'Sociétés offshore (Loi 72)', 'Fonds de commerce & litiges commerciaux']],
+        ['fa-people-roof',     'Famille & Successions',   ['Divorce', 'Pension alimentaire & garde', 'Successions & héritages']],
+        ['fa-gavel',           'Droit Pénal',             ['Délits', 'Crimes', 'Plaidoirie devant les juridictions pénales']],
+        ['fa-file-invoice-dollar', 'Travail & Recouvrement', ['Litiges du travail', 'Sécurité sociale', 'Chèques sans provision & lettres de change']],
+        ['fa-landmark',        'Cassation',               ['Pourvois devant la Cour de cassation', 'Rédaction des mémoires', 'Plaidoirie à Tunis']],
+    ],
+
+    'zone_h2'  => 'Partout en Tunisie et à l’étranger',
+    'zone_sub' => 'Le cabinet est basé à Nabeul, mais son activité ne se limite pas au Cap Bon.',
+    'zone' => [
+        ['fa-landmark',      'Cour de cassation',          "Habilité près la Cour de cassation, Maître Bahroun représente des clients de tous les gouvernorats devant la plus haute juridiction, à Tunis."],
+        ['fa-map-location-dot', 'Toutes les juridictions', "Tribunaux de première instance, cours d'appel et justices cantonales de Nabeul, Tunis, Sousse, Sfax, Bizerte et ailleurs."],
+        ['fa-plane',         'Tunisiens à l’étranger',     "Dossiers immobiliers, successions, divorces ou affaires commerciales en Tunisie : suivi à distance par téléphone et par email."],
+    ],
+
+    'met_h2' => 'Méthode de Travail',
+    'methode' => [
+        ['Analyse', 'Étude approfondie de votre dossier juridique.'],
+        ['Conseil', "Élaboration d'une stratégie de défense optimale."],
+        ['Action',  'Représentation et plaidoirie devant les cours.'],
+    ],
+
+    'stats' => [
+        ['fa-briefcase', '+35',        "Ans d'expérience"],
+        ['fa-landmark',  'Cassation',  'Habilité près la Cour'],
+        ['fa-earth-africa', 'Tunisie', '& clients à l’étranger'],
+    ],
+
+    'rdv_h2'  => 'Rendez-vous & Questions',
+    'rdv_sub' => 'Réservez un créneau ou posez votre question : votre demande est transmise directement au cabinet par email.',
+    'ok'      => 'Merci ! Votre demande a bien été envoyée. Le cabinet vous recontactera rapidement.',
+    'err'     => "L'envoi a échoué. Merci de réessayer ou de contacter le cabinet par téléphone.",
+    'invalid' => 'Merci de remplir correctement les champs obligatoires.',
+    'tab_rdv' => 'Rendez-vous',
+    'tab_q'   => 'Poser une question',
+    'f_name'  => 'Nom & prénom',
+    'f_phone' => 'Téléphone',
+    'f_email' => 'Email',
+    'f_date'  => 'Date souhaitée',
+    'f_slot'  => 'Créneau',
+    'slots'   => ['Matin (08h00 – 12h00)', 'Après-midi (14h00 – 18h00, sauf samedi)'],
+    'f_domain'=> 'Domaine',
+    'domains' => ['Civil & Immobilier', 'Commercial & Sociétés', 'Famille & Successions', 'Pénal', 'Travail & Recouvrement', 'Cassation', 'Autre'],
+    'f_object'=> 'Objet de la consultation',
+    'f_object_ph' => 'Décrivez brièvement votre situation...',
+    'f_question' => 'Votre question',
+    'send_rdv'=> 'Envoyer la demande',
+    'send_q'  => 'Envoyer la question',
+    'note_rdv'=> 'Le rendez-vous sera confirmé par le cabinet par téléphone ou email. Clients hors Nabeul ou à l’étranger : un premier échange par téléphone est possible.',
+    'note_q'  => 'Vos informations restent strictement confidentielles (secret professionnel).',
+
+    'quick_h3'=> 'Réponse rapide',
+    'quick_p' => 'Vous préférez échanger directement ? Appelez le cabinet ou écrivez-nous.',
+    'btn_mail'=> 'Envoyer un email',
+    'hours_h3'=> 'Horaires',
+    'hours'   => [
+        'Lundi – Jeudi' => '08h00 – 18h00',
+        'Vendredi'      => '08h00 – 17h00',
+        'Samedi'        => '08h00 – 12h00',
+        'Dimanche'      => 'Fermé',
+    ],
+
+    'contact_h2' => 'Contactez le Cabinet',
+    'c_phone' => 'Téléphone',
+    'c_tel'   => 'Tél.',
+    'c_fax'   => 'Fax',
+    'c_hours' => 'Horaires',
+    'c_hours_short' => 'Lun – Jeu : 08h – 18h<br>Vendredi : 08h – 17h<br>Samedi : 08h – 12h',
+    'c_email' => 'Email',
+    'c_addr'  => 'Adresse',
+    'addr1'   => '155, Avenue Habib Bourguiba',
+    'addr2'   => "8000 Nabeul — à côté d'Electro Nabli",
+    'map_title' => 'Localisation du cabinet',
+
+    'footer'  => 'Tous droits réservés.',
+];
