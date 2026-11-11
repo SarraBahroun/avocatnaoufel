@@ -127,6 +127,7 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
 </section>
 
 <?php if (!empty($SITE['videos'])): ?>
+<div class="divider" aria-hidden="true"><span></span><i class="fas fa-tv"></i><span></span></div>
 <section id="medias" class="section-padding">
     <h2 class="section-title"><?= $t('media_h2') ?></h2>
     <p class="section-sub"><?= $t('media_sub') ?></p>
