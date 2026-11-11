@@ -1,5 +1,5 @@
 <?php
-// Reçoit les formulaires "Rendez-vous" et "Question" et les envoie par email au cabinet.
+// Reçoit le formulaire « Demande de rendez-vous » et l'envoie par email au cabinet.
 require __DIR__ . '/config/site.php';
 
 $langue = in_array($_POST['lang'] ?? '', ['fr', 'ar', 'en'], true) ? $_POST['lang'] : 'fr';
@@ -17,7 +17,6 @@ if (!empty($_POST['site_web'])) retour('ok');
 
 $clean = fn($k) => trim(str_replace(["\r", "\n"], ' ', strip_tags($_POST[$k] ?? '')));
 
-$type      = ($_POST['type'] ?? '') === 'question' ? 'question' : 'rdv';
 $nom       = $clean('nom');
 $telephone = $clean('telephone');
 $email     = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL) ?: '';
@@ -28,21 +27,13 @@ $domaine   = $clean('domaine');
 
 // Validation
 if ($nom === '') retour('invalide');
-if ($type === 'rdv' && ($telephone === '' || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date))) retour('invalide');
-if ($type === 'question' && ($email === '' || $message === '')) retour('invalide');
+if ($telephone === '' || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) retour('invalide');
 
-if ($type === 'rdv') {
-    $sujet = "Demande de rendez-vous — $nom";
-    $corps = "NOUVELLE DEMANDE DE RENDEZ-VOUS\n\n"
-           . "Nom : $nom\nTéléphone : $telephone\nEmail : " . ($email ?: '—') . "\n"
-           . "Date souhaitée : " . date('d/m/Y', strtotime($date)) . "\nCréneau : $creneau\nDomaine : $domaine\n\n"
-           . "Objet :\n" . ($message ?: '—') . "\n";
-} else {
-    $sujet = "Question d'un visiteur — $nom";
-    $corps = "NOUVELLE QUESTION\n\n"
-           . "Nom : $nom\nEmail : $email\nTéléphone : " . ($telephone ?: '—') . "\n\n"
-           . "Question :\n$message\n";
-}
+$sujet = "Demande de rendez-vous — $nom";
+$corps = "NOUVELLE DEMANDE DE RENDEZ-VOUS\n\n"
+       . "Nom : $nom\nTéléphone : $telephone\nEmail : " . ($email ?: '—') . "\n"
+       . "Date souhaitée : " . date('d/m/Y', strtotime($date)) . "\nCréneau : $creneau\nDomaine : $domaine\n\n"
+       . "Objet du rendez-vous :\n" . ($message ?: '—') . "\n";
 $corps .= "\n---\nEnvoyé depuis le site du cabinet (version " . strtoupper($langue) . ") le " . date('d/m/Y à H:i');
 
 $domaineSite = preg_replace('/^www\./', '', $_SERVER['SERVER_NAME'] ?? 'localhost');

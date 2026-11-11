@@ -146,10 +146,6 @@ header {
 /* ---------- RENDEZ-VOUS / QUESTION ---------- */
 .rdv-wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
 .form-card { background: var(--navy-light); border: 1px solid var(--gold-soft); border-top: 4px solid var(--gold); padding: 36px; }
-.tabs { display: flex; margin-bottom: 26px; border-bottom: 1px solid var(--gold-soft); }
-.tab { flex: 1; background: none; border: 0; color: var(--muted); padding: 12px 8px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; transition: .3s; }
-.tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab i { margin-right: 6px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-grid .full { grid-column: 1 / -1; }
 .field label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px; }
@@ -164,7 +160,6 @@ input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.8) sepia
 .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; pointer-events: none; }  /* champ anti-spam invisible (sans -9999px qui faisait déborder la page en arabe) */
 .form-actions { margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .form-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
-.form-panel[hidden] { display: none; }
 
 .alert { padding: 14px 18px; border-radius: 4px; margin-bottom: 22px; font-size: 14px; display: flex; gap: 10px; align-items: center; }
 .alert-ok { background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.5); color: #b6f5cf; }
@@ -250,7 +245,6 @@ footer .foot-name { color: var(--gold); font-family: 'Playfair Display', serif; 
 [dir="rtl"] .hero .hero-title { font-size: 16px; }
 [dir="rtl"] .hours td:last-child { text-align: left; }
 [dir="rtl"] .spec-card li::before { content: "• "; }
-[dir="rtl"] .tab i { margin-right: 0; margin-left: 6px; }
 [dir="rtl"] p, [dir="rtl"] li { line-height: 1.9; }
 
 /* ---------- RESPONSIVE ---------- */

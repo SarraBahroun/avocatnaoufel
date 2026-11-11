@@ -163,13 +163,8 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
                 <div class="alert alert-err"><i class="fas fa-triangle-exclamation"></i> <?= $t('invalid') ?></div>
             <?php endif; ?>
 
-            <div class="tabs" role="tablist">
-                <button class="tab active" data-tab="rdv" role="tab"><i class="far fa-calendar-check"></i><?= $t('tab_rdv') ?></button>
-                <button class="tab" data-tab="question" role="tab"><i class="far fa-envelope"></i><?= $t('tab_q') ?></button>
-            </div>
-
-            <!-- Formulaire RENDEZ-VOUS -->
-            <form class="form-panel" id="panel-rdv" action="contact.php" method="POST">
+            <!-- Formulaire DEMANDE DE RENDEZ-VOUS -->
+            <form action="contact.php" method="POST">
                 <input type="hidden" name="type" value="rdv">
                 <input type="hidden" name="lang" value="<?= $lang ?>">
                 <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off">
@@ -194,22 +189,6 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
                     <button type="submit" class="btn btn-gold"><i class="fas fa-paper-plane"></i> <?= $t('send_rdv') ?></button>
                 </div>
                 <p class="form-note"><?= $t('note_rdv') ?></p>
-            </form>
-
-            <!-- Formulaire QUESTION -->
-            <form class="form-panel" id="panel-question" action="contact.php" method="POST" hidden>
-                <input type="hidden" name="type" value="question">
-                <input type="hidden" name="lang" value="<?= $lang ?>">
-                <input type="text" name="site_web" class="hp" tabindex="-1" autocomplete="off">
-                <div class="form-grid">
-                    <div class="field"><label><?= $t('f_name') ?> *</label><input type="text" name="nom" required maxlength="100"></div>
-                    <div class="field"><label><?= $t('f_email') ?> *</label><input type="email" name="email" required maxlength="150" dir="ltr"></div>
-                    <div class="field full"><label><?= $t('f_phone') ?></label><input type="tel" name="telephone" maxlength="30" placeholder="+216 ..." dir="ltr"></div>
-                    <div class="field full"><label><?= $t('f_question') ?> *</label><textarea name="message" required maxlength="3000"></textarea></div>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-gold"><i class="fas fa-paper-plane"></i> <?= $t('send_q') ?></button>
-                </div>
                 <p class="form-note"><?= $t('note_q') ?></p>
             </form>
         </div>
@@ -276,11 +255,6 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
     });
     nav.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 
-    // Onglets Rendez-vous / Question
-    document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
-        document.querySelectorAll('.form-panel').forEach(p => p.hidden = p.id !== 'panel-' + tab.dataset.tab);
-    }));
     // Carrousel « Domaines d'expertise » : flèches, points, défilement automatique
     document.querySelectorAll('[data-carousel]').forEach(car => {
         const track = car.querySelector('.car-track'), cards = [...track.children];
@@ -330,8 +304,6 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
         track.addEventListener('touchstart', pause, { passive: true });
         lancer();
     });
-
-    if (location.hash === '#question') document.querySelector('[data-tab="question"]').click();
 </script>
 </body>
 </html>
