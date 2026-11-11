@@ -11,8 +11,8 @@
     /* Dégradé « or métallique » pour boutons, titres et pastilles */
     --gold-grad: linear-gradient(135deg, #8C6A24 0%, #C9A24B 28%, #F1DCA0 50%, #C9A24B 72%, #8C6A24 100%);
     --creme: #fdfaf0;
-    --white: #e6f1ff;
-    --muted: #a8b2d1;
+    --white: #F4EFE6;           /* ivoire (au lieu d'un blanc bleuté) */
+    --muted: #C3BBA9;           /* gris chaud, s'accorde avec le doré */
     --wa: #25D366;
 }
 
@@ -52,7 +52,8 @@ header {
 /* ---------- HERO ---------- */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(rgba(10,25,47,.72), rgba(10,25,47,.72)), url('../images/hero1.png') no-repeat center / cover;
+    /* vignette : bords assombris, le regard va vers la balance au centre */
+    background: radial-gradient(ellipse 55% 65% at 50% 45%, rgba(10,25,47,.5) 0%, rgba(10,25,47,.82) 60%, rgba(10,25,47,.97) 100%), url('../images/hero1.png') no-repeat center / cover;
     background-attachment: fixed;
     display: flex; justify-content: center; align-items: center; text-align: center;
     position: relative; overflow: hidden; padding: 120px 6% 60px;
@@ -270,7 +271,7 @@ footer .foot-name { color: var(--gold); font-family: 'Playfair Display', serif; 
 /* Téléphone / écran vertical : image du hero en format portrait */
 @media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     .hero {
-        background: linear-gradient(rgba(10,25,47,.62), rgba(10,25,47,.78)), url('../images/hero-mobile.webp') no-repeat center bottom / cover;
+        background: radial-gradient(ellipse 75% 55% at 50% 42%, rgba(10,25,47,.55) 0%, rgba(10,25,47,.85) 65%, rgba(10,25,47,.97) 100%), url('../images/hero-mobile.webp') no-repeat center bottom / cover;
         background-attachment: scroll;
     }
 }
@@ -324,3 +325,63 @@ footer .foot-name { color: var(--gold); font-family: 'Playfair Display', serif; 
 .btn-gold, .nav-links .btn-nav { box-shadow: 0 4px 14px rgba(140,106,36,.35), inset 0 1px 0 rgba(255,255,255,.35); }
 .btn-gold:hover, .nav-links .btn-nav:hover, .to-top:hover { background: var(--gold-grad); background-size: 200% auto; background-position: 100% 0; color: var(--navy); }
 .step-num { box-shadow: 0 0 0 4px rgba(201,162,75,.18), inset 0 1px 0 rgba(255,255,255,.4); }
+/* ==========================================================
+   RETOUCHES ARTISTIQUES
+   ========================================================== */
+
+/* Cartes harmonisées : même cadre, filet doré en haut, même ombre */
+.spec-card, .zone-card, .contact-card, .quick-card, .form-card {
+    background: linear-gradient(180deg, var(--navy-light) 0%, #0e1d38 100%);
+    border: 1px solid rgba(201,162,75,.18); border-top: 3px solid var(--gold);
+    box-shadow: 0 12px 30px rgba(0,0,0,.28);
+}
+.zone-card:hover, .contact-card:hover { border-color: rgba(201,162,75,.45); border-top-color: var(--gold); box-shadow: 0 18px 36px rgba(0,0,0,.38); }
+.zone-card i, .contact-card i, .spec-card i { filter: drop-shadow(0 2px 6px rgba(201,162,75,.25)); }
+
+/* Photo du maître : cadre doré décalé, style galerie */
+.bio-img img { border: 0; padding: 0; background: none; box-shadow: 18px 18px 0 -2px var(--navy), 18px 18px 0 0 var(--gold), 0 25px 50px rgba(0,0,0,.45); }
+[dir="rtl"] .bio-img img { box-shadow: -18px 18px 0 -2px var(--navy), -18px 18px 0 0 var(--gold), 0 25px 50px rgba(0,0,0,.45); }
+
+/* Bande chiffres : sombre et dorée (fini la bande blanche) */
+.stats-bar {
+    background: radial-gradient(ellipse at center, #13284a 0%, var(--navy) 75%);
+    color: var(--white); border-top: 1px solid var(--gold-soft); border-bottom: 1px solid var(--gold-soft);
+    justify-content: center; gap: 0; padding: 56px 6%;
+}
+.stat-item { flex: 1; min-width: 200px; max-width: 340px; padding: 6px 20px; position: relative; }
+.stat-item + .stat-item::before { content: ''; position: absolute; inset-inline-start: 0; top: 15%; bottom: 15%; width: 1px; background: linear-gradient(transparent, var(--gold), transparent); }
+.stat-item i { font-size: 26px; margin-bottom: 12px; opacity: .85; }
+.stat-number { font-size: 44px; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+.stat-label { color: var(--muted); font-weight: 500; }
+
+/* Méthode : les 3 étapes reliées par un fil doré */
+.method-container { position: relative; max-width: 1100px; margin: 0 auto; }
+.method-container::before { content: ''; position: absolute; top: 52px; left: 16.6%; right: 16.6%; height: 1px; background: linear-gradient(to right, transparent, var(--gold) 15%, var(--gold) 85%, transparent); opacity: .6; }
+.step-num { position: relative; z-index: 1; width: 64px; height: 64px; font-size: 19px; box-shadow: 0 0 0 8px var(--navy), 0 0 0 9px var(--gold-soft), 0 8px 24px rgba(0,0,0,.4); }
+.method-item h3 { font-size: 22px; margin-top: 8px; }
+
+/* Contact : coordonnées à gauche, carte à droite */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
+.contact-list { display: grid; gap: 20px; }
+.contact-card { display: flex; align-items: center; gap: 22px; text-align: start; padding: 24px 26px; }
+.contact-card i { margin: 0; width: 54px; height: 54px; flex: none; border-radius: 50%; border: 1px solid var(--gold-soft); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.contact-card h4 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 17px; }
+.map-wrap { height: auto; min-height: 380px; border: 1px solid rgba(201,162,75,.18); border-top: 3px solid var(--gold); box-shadow: 0 12px 30px rgba(0,0,0,.28); overflow: hidden; }
+/* carte Google en version sombre pour rester dans l'ambiance du site */
+.map-wrap iframe { filter: grayscale(.35) invert(.9) hue-rotate(180deg) contrast(.92) brightness(.95); }
+
+@media (max-width: 900px) {
+    .contact-wrap { grid-template-columns: 1fr; }
+    .map-wrap { min-height: 300px; }
+}
+@media (max-width: 700px) {
+    /* Téléphone : photo plus petite, boutons du hero de même largeur */
+    .bio-img img { max-width: 240px; }
+    .flex-bio { gap: 40px; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .hero-cta .btn { width: 100%; max-width: 290px; justify-content: center; }
+    .method-container::before { display: none; }
+    .stat-item { min-width: 100%; padding: 18px 0; }
+    .stat-item + .stat-item::before { inset: 0 25% auto; width: auto; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+    .contact-card { padding: 20px; gap: 16px; }
+}

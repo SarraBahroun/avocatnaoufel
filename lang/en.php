@@ -63,9 +63,9 @@ return [
     'media_video' => 'Video — Al Janoubiya TV',
 
     'stats' => [
-        ['fa-briefcase',    '+35',       'Years of experience'],
-        ['fa-landmark',     'Cassation', 'Admitted to the Court'],
-        ['fa-earth-africa', 'Tunisia',   '& clients abroad'],
+        ['fa-briefcase',      '+35',       'Years of experience'],
+        ['fa-scale-balanced', '6',         'Practice areas'],
+        ['fa-landmark',       'Cassation', 'Admitted to the Court'],
     ],
 
     'rdv_h2'  => 'Appointment request',
@@ -102,8 +102,6 @@ return [
     'c_phone' => 'Phone',
     'c_tel'   => 'Tel.',
     'c_fax'   => 'Fax',
-    'c_hours' => 'Opening hours',
-    'c_hours_short' => 'Mon – Thu: 8:00 – 18:00<br>Friday: 8:00 – 17:00<br>Saturday: 8:00 – 12:00',
     'c_email' => 'Email',
     'c_addr'  => 'Address',
     'addr1'   => '155 Avenue Habib Bourguiba',

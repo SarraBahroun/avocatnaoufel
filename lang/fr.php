@@ -63,9 +63,9 @@ return [
     'media_video' => 'Vidéo — Al Janoubiya TV',
 
     'stats' => [
-        ['fa-briefcase', '+35',        "Ans d'expérience"],
-        ['fa-landmark',  'Cassation',  'Habilité près la Cour'],
-        ['fa-earth-africa', 'Tunisie', '& clients à l’étranger'],
+        ['fa-briefcase',       '+35',       "Ans d'expérience"],
+        ['fa-scale-balanced',  '6',         "Domaines d'expertise"],
+        ['fa-landmark',        'Cassation', 'Habilité près la Cour'],
     ],
 
     'rdv_h2'  => 'Demande de rendez-vous',
@@ -102,8 +102,6 @@ return [
     'c_phone' => 'Téléphone',
     'c_tel'   => 'Tél.',
     'c_fax'   => 'Fax',
-    'c_hours' => 'Horaires',
-    'c_hours_short' => 'Lun – Jeu : 08h – 18h<br>Vendredi : 08h – 17h<br>Samedi : 08h – 12h',
     'c_email' => 'Email',
     'c_addr'  => 'Adresse',
     'addr1'   => '155, Avenue Habib Bourguiba',

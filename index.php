@@ -212,19 +212,19 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
     </div>
 </section>
 
-<section id="contact" class="section-padding" style="background: var(--navy-light);">
+<section id="contact" class="section-padding">
     <h2 class="section-title" style="margin-bottom:50px;"><?= $t('contact_h2') ?></h2>
-    <div class="grid-4">
-        <a class="contact-card" href="tel:<?= $e($SITE['tel_raw']) ?>"><i class="fas fa-phone"></i><h4><?= $t('c_phone') ?></h4><p><?= $t('c_tel') ?> <?= $ltr($SITE['tel']) ?><br><?= $t('c_fax') ?> <?= $ltr($SITE['fax']) ?></p></a>
-        <a class="contact-card" href="#rendez-vous"><i class="far fa-clock"></i><h4><?= $t('c_hours') ?></h4><p><?= $T['c_hours_short'] ?></p></a>
-        <a class="contact-card" href="<?= $e($mailto) ?>"><i class="fas fa-envelope"></i><h4><?= $t('c_email') ?></h4><p><?= implode('<br>', array_map($ltr, $emails)) ?></p></a>
-        <a class="contact-card" href="<?= $e($mapLnk) ?>" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i><h4><?= $t('c_addr') ?></h4><p><?= $t('addr1') ?><br><?= $t('addr2') ?></p></a>
+    <div class="contact-wrap">
+        <div class="contact-list">
+            <a class="contact-card" href="tel:<?= $e($SITE['tel_raw']) ?>"><i class="fas fa-phone"></i><div><h4><?= $t('c_phone') ?></h4><p><?= $t('c_tel') ?> <?= $ltr($SITE['tel']) ?><br><?= $t('c_fax') ?> <?= $ltr($SITE['fax']) ?></p></div></a>
+            <a class="contact-card" href="<?= $e($mailto) ?>"><i class="fas fa-envelope"></i><div><h4><?= $t('c_email') ?></h4><p><?= implode('<br>', array_map($ltr, $emails)) ?></p></div></a>
+            <a class="contact-card" href="<?= $e($mapLnk) ?>" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i><div><h4><?= $t('c_addr') ?></h4><p><?= $t('addr1') ?><br><?= $t('addr2') ?></p></div></a>
+        </div>
+        <div class="map-wrap">
+            <iframe src="<?= $e($mapSrc) ?>" title="<?= $t('map_title') ?>" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 </section>
-
-<div class="map-wrap">
-    <iframe src="<?= $e($mapSrc) ?>" title="<?= $t('map_title') ?>" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
 
 <footer>
     <img src="assets/images/logo.svg" alt="">
