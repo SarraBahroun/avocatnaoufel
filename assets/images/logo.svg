@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Cabinet Maître Naoufel Bahroun">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F3D98B"/>
-      <stop offset=".5" stop-color="#D4AF37"/>
-      <stop offset="1" stop-color="#A8862A"/>
+      <stop offset="0" stop-color="#F1DCA0"/>
+      <stop offset=".5" stop-color="#C9A24B"/>
+      <stop offset="1" stop-color="#8C6A24"/>
     </linearGradient>
   </defs>
   <circle cx="60" cy="60" r="58" fill="#0a192f"/>
   <circle cx="60" cy="60" r="55" fill="none" stroke="url(#g)" stroke-width="2"/>
-  <circle cx="60" cy="60" r="50" fill="none" stroke="#D4AF37" stroke-opacity=".45" stroke-width=".8"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#C9A24B" stroke-opacity=".45" stroke-width=".8"/>
   <g fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round">
     <path d="M60 27 V67" stroke-width="2.4"/>
     <path d="M31 36 Q60 31 89 36" stroke-width="2.2"/>
@@ -21,5 +21,5 @@
     <path d="M52 67 H68 L72 71 H48 Z"/>
     <text x="60" y="94" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-weight="700" font-size="21" letter-spacing="3">NB</text>
   </g>
-  <path d="M40 79 H52 M68 79 H80" stroke="#D4AF37" stroke-opacity=".6" stroke-width=".8"/>
+  <path d="M40 79 H52 M68 79 H80" stroke="#C9A24B" stroke-opacity=".6" stroke-width=".8"/>
 </svg>
