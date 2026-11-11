@@ -9,6 +9,7 @@ return [
     'nav_cabinet'    => 'The Firm',
     'nav_expertises' => 'Practice Areas',
     'nav_zone'       => 'Coverage',
+    'nav_medias'       => 'Media',
     'nav_contact'    => 'Contact',
     'nav_rdv'        => 'Book an appointment',
 

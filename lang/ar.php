@@ -9,6 +9,7 @@ return [
     'nav_cabinet'    => 'المكتب',
     'nav_expertises' => 'مجالات الاختصاص',
     'nav_zone'       => 'مجال التدخل',
+    'nav_medias'       => 'الإعلام',
     'nav_contact'    => 'اتصل بنا',
     'nav_rdv'        => 'احجز موعدًا',
 

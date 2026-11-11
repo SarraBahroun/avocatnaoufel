@@ -42,6 +42,7 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
         <a href="#about"><?= $t('nav_cabinet') ?></a>
         <a href="#expertises"><?= $t('nav_expertises') ?></a>
         <a href="#zone"><?= $t('nav_zone') ?></a>
+        <?php if (!empty($SITE['videos'])): ?><a href="#medias"><?= $t('nav_medias') ?></a><?php endif; ?>
         <a href="#contact"><?= $t('nav_contact') ?></a>
         <a href="#rendez-vous" class="btn-nav"><?= $t('nav_rdv') ?></a>
         <div class="lang-switch">

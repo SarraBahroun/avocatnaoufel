@@ -9,6 +9,7 @@ return [
     'nav_cabinet'    => 'Cabinet',
     'nav_expertises' => 'Expertises',
     'nav_zone'       => 'Intervention',
+    'nav_medias'       => 'Médias',
     'nav_contact'    => 'Contact',
     'nav_rdv'        => 'Prendre rendez-vous',
 
