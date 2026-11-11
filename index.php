@@ -235,7 +235,16 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
     <p>© <?= date('Y') ?> <?= $t('hero_name') ?>. <?= $t('footer') ?></p>
 </footer>
 
+<a href="#" class="to-top" aria-label="Haut de page"><i class="fas fa-arrow-up"></i></a>
+
 <script>
+    // Flèche "retour en haut" : apparaît quand on descend
+    const toTop = document.querySelector('.to-top');
+    const majFleche = () => toTop.classList.toggle('show', window.scrollY > 500);
+    window.addEventListener('scroll', majFleche, { passive: true });
+    majFleche();
+    toTop.addEventListener('click', ev => { ev.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
     // Menu mobile
     const burger = document.querySelector('.burger'), nav = document.querySelector('.nav-links');
     burger.addEventListener('click', () => {
