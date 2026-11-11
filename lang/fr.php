@@ -32,6 +32,8 @@ return [
 
     'exp_h2'  => "Domaines d'Expertise",
     'exp_sub' => 'Un accompagnement juridique complet, du conseil jusqu’au contentieux.',
+    'car_prev' => 'Précédent',
+    'car_next' => 'Suivant',
     'expertises' => [
         ['fa-building',        'Civil & Immobilier',      ['Contrats & obligations', 'Propriété & titres fonciers', 'Transactions & ventes']],
         ['fa-briefcase',       'Commercial & Sociétés',   ['Création & statuts de sociétés', 'Sociétés offshore (Loi 72)', 'Fonds de commerce & litiges commerciaux']],

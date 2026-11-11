@@ -95,8 +95,34 @@ header {
 
 /* ---------- EXPERTISES ---------- */
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-.spec-card { background: var(--navy-light); padding: 40px; border-top: 5px solid var(--gold); transition: .3s; }
+.spec-card { background: var(--navy-light); padding: 40px; border-top: 5px solid var(--gold); transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s, box-shadow .3s, filter .6s; }
 .spec-card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+
+/* Carrousel (Domaines d'expertise) : une seule ligne + flèches */
+.carousel { position: relative; max-width: 1200px; margin: 0 auto; }
+.car-track { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 14px 4px 24px; }
+.car-track::-webkit-scrollbar { display: none; }
+.car-track .spec-card { flex: 0 0 calc((100% - 60px) / 3); scroll-snap-align: start; opacity: .35; transform: scale(.93); filter: saturate(.6); }
+.car-track .spec-card.in { opacity: 1; transform: none; filter: none; }
+.car-track .spec-card.in:hover { transform: translateY(-6px); }
+.car-btn { position: absolute; top: 50%; transform: translateY(-60%); z-index: 2; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); background: rgba(10,25,47,.9); color: var(--gold); font-size: 18px; cursor: pointer; transition: .3s; box-shadow: 0 6px 20px rgba(0,0,0,.45); }
+.car-btn:hover { background: var(--gold); color: var(--navy); }
+.car-prev { inset-inline-start: -70px; }
+.car-next { inset-inline-end: -70px; }
+[dir="rtl"] .car-btn i { transform: scaleX(-1); }
+.car-dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+.car-dots button { width: 10px; height: 10px; border-radius: 10px; border: 0; background: var(--gold-soft); cursor: pointer; transition: .4s; padding: 0; }
+.car-dots button.active { width: 30px; background: var(--gold); }
+@media (max-width: 1360px) { .car-prev { inset-inline-start: -16px; } .car-next { inset-inline-end: -16px; } }
+@media (max-width: 1000px) { .car-track .spec-card { flex-basis: calc((100% - 30px) / 2); } }
+@media (max-width: 700px) {
+    .car-track { gap: 16px; }
+    .car-track .spec-card { flex-basis: 82%; padding: 30px 24px; }
+    /* Sur téléphone, les flèches passent sous les cartes, de part et d'autre des points */
+    .car-btn { top: calc(100% + 18px); transform: none; width: 42px; height: 42px; font-size: 15px; }
+    .car-prev { inset-inline-start: 0; } .car-next { inset-inline-end: 0; }
+    .car-dots { margin-top: 18px; min-height: 42px; align-items: center; }
+}
 .spec-card i { color: var(--gold); font-size: 28px; margin-bottom: 18px; }
 .spec-card h3 { color: var(--gold); margin-bottom: 18px; }
 .spec-card ul { list-style: none; font-size: 14px; color: var(--muted); }
@@ -135,7 +161,7 @@ header {
 .field select option { background: var(--navy-light); }
 .field textarea { min-height: 120px; resize: vertical; }
 input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(.8) sepia(1) saturate(4) hue-rotate(5deg); }
-.hp { position: absolute; left: -9999px; }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; pointer-events: none; }  /* champ anti-spam invisible (sans -9999px qui faisait déborder la page en arabe) */
 .form-actions { margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .form-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
 .form-panel[hidden] { display: none; }

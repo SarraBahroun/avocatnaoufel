@@ -32,6 +32,8 @@ return [
 
     'exp_h2'  => 'Practice Areas',
     'exp_sub' => 'Comprehensive legal support, from advice to litigation.',
+    'car_prev' => 'Previous',
+    'car_next' => 'Next',
     'expertises' => [
         ['fa-building',        'Civil & Real Estate',     ['Contracts & obligations', 'Property & land titles', 'Sales & transactions']],
         ['fa-briefcase',       'Commercial & Corporate',  ['Company formation & articles', 'Offshore companies (Law 72)', 'Business assets & commercial disputes']],

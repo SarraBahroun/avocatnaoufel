@@ -87,7 +87,9 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
 <section id="expertises" class="section-padding" style="background: rgba(255,255,255,0.02);">
     <h2 class="section-title"><?= $t('exp_h2') ?></h2>
     <p class="section-sub"><?= $t('exp_sub') ?></p>
-    <div class="grid-3">
+    <div class="carousel" data-carousel>
+        <button type="button" class="car-btn car-prev" aria-label="<?= $t('car_prev') ?>"><i class="fas fa-chevron-left"></i></button>
+        <div class="car-track">
         <?php foreach ($T['expertises'] as [$icon, $titre, $items]): ?>
             <div class="spec-card">
                 <i class="fas <?= $icon ?>"></i>
@@ -95,7 +97,10 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
                 <ul><?php foreach ($items as $it): ?><li><?= $e($it) ?></li><?php endforeach; ?></ul>
             </div>
         <?php endforeach; ?>
+        </div>
+        <button type="button" class="car-btn car-next" aria-label="<?= $t('car_next') ?>"><i class="fas fa-chevron-right"></i></button>
     </div>
+    <div class="car-dots"></div>
 </section>
 
 <section id="zone" class="section-padding">
@@ -276,6 +281,56 @@ $mapLnk = "https://www.google.com/maps/search/?api=1&query=" . rawurlencode($SIT
         document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
         document.querySelectorAll('.form-panel').forEach(p => p.hidden = p.id !== 'panel-' + tab.dataset.tab);
     }));
+    // Carrousel « Domaines d'expertise » : flèches, points, défilement automatique
+    document.querySelectorAll('[data-carousel]').forEach(car => {
+        const track = car.querySelector('.car-track'), cards = [...track.children];
+        const dots = car.nextElementSibling, rtl = document.dir === 'rtl' ? -1 : 1;
+        const pas = () => cards[0].offsetWidth + parseFloat(getComputedStyle(track).columnGap || 0);
+        const pos = () => Math.abs(track.scrollLeft), max = () => track.scrollWidth - track.clientWidth - 2;
+        const aller = sens => {
+            if (sens > 0 && pos() >= max()) track.scrollTo({ left: 0, behavior: 'smooth' });          // fin → retour au début
+            else if (sens < 0 && pos() <= 2) track.scrollTo({ left: rtl * track.scrollWidth, behavior: 'smooth' });
+            else track.scrollBy({ left: sens * rtl * pas(), behavior: 'smooth' });
+        };
+        car.querySelector('.car-prev').addEventListener('click', () => { aller(-1); pause(); });
+        car.querySelector('.car-next').addEventListener('click', () => { aller(1); pause(); });
+
+        // Un point par position possible (6 cartes, 3 visibles → 4 positions)
+        const nbPos = () => Math.max(1, Math.round(max() / pas()) + 1);
+        const majPoints = () => {
+            const i = pos() >= max() ? dots.children.length - 1 : Math.round(pos() / pas());
+            [...dots.children].forEach((d, k) => d.classList.toggle('active', k === i));
+        };
+        const creerPoints = () => {
+            if (dots.children.length === nbPos()) return majPoints();
+            dots.innerHTML = '';
+            for (let i = 0; i < nbPos(); i++) {
+                const d = document.createElement('button');
+                d.type = 'button'; d.setAttribute('aria-label', String(i + 1));
+                d.addEventListener('click', () => { track.scrollTo({ left: rtl * i * pas(), behavior: 'smooth' }); pause(); });
+                dots.appendChild(d);
+            }
+            majPoints();
+        };
+        track.addEventListener('scroll', majPoints, { passive: true });
+        window.addEventListener('resize', creerPoints);
+        creerPoints();
+
+        // Effet cinéma : les cartes à moitié visibles sont atténuées
+        const io = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle('in', en.intersectionRatio > .85)),
+            { root: track, threshold: [0, .85, 1] });
+        cards.forEach(c => io.observe(c));
+
+        // Défilement automatique (s'arrête au survol, au toucher, ou si l'utilisateur préfère moins d'animations)
+        let timer = null, reprise = null;
+        const lancer = () => { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { clearInterval(timer); timer = setInterval(() => aller(1), 4500); } };
+        const pause = () => { clearInterval(timer); clearTimeout(reprise); reprise = setTimeout(lancer, 9000); };
+        car.addEventListener('mouseenter', () => clearInterval(timer));
+        car.addEventListener('mouseleave', lancer);
+        track.addEventListener('touchstart', pause, { passive: true });
+        lancer();
+    });
+
     if (location.hash === '#question') document.querySelector('[data-tab="question"]').click();
 </script>
 </body>
